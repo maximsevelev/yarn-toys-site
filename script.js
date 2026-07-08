@@ -1,17 +1,19 @@
 const PRODUCTS = [
   {
-    id: 'bear',
-    name: 'Мишка Тёпа',
-    desc: 'Плюшевый мишка из мягкой бежевой пряжи, набит гипоаллергенным холлофайбером.',
-    price: 1800,
-    color: '#c99a6c',
-    darkColor: '#a97a4d',
+    id: 'scrunchie-red',
+    name: 'Резинка для волос',
+    desc: 'Вязаная резинка крючком, красно-белая, мягкая и объёмная — украсит любую причёску.',
+    price: 150,
+    image: 'rezinka-krasnaya.jpg',
+    color: '#d94f4f',
+    darkColor: '#b73a3a',
   },
   {
     id: 'bunny',
     name: 'Зайка Стёпа',
     desc: 'Длинноухий зайка пастельного розового цвета, идеален для малышей.',
     price: 1600,
+    image: '',
     color: '#f2c9d1',
     darkColor: '#e3a3b0',
   },
@@ -20,6 +22,7 @@ const PRODUCTS = [
     name: 'Кот Барсик',
     desc: 'Полосатый вязаный кот с вышитыми усами и мягким хвостом.',
     price: 1500,
+    image: '',
     color: '#e8dcc7',
     darkColor: '#cbb98f',
   },
@@ -28,6 +31,7 @@ const PRODUCTS = [
     name: 'Слонёнок Тоша',
     desc: 'Голубой слонёнок с большими ушами — любимец детской комнаты.',
     price: 2000,
+    image: '',
     color: '#cfe3f0',
     darkColor: '#a9c8de',
   },
@@ -36,6 +40,7 @@ const PRODUCTS = [
     name: 'Лисёнок',
     desc: 'Рыжий лисёнок с белой грудкой и пушистым хвостиком.',
     price: 1700,
+    image: '',
     color: '#eaa06a',
     darkColor: '#d9803f',
   },
@@ -44,6 +49,7 @@ const PRODUCTS = [
     name: 'Совёнок Умка',
     desc: 'Круглый совёнок с большими глазами из бежево-коричневой пряжи.',
     price: 1550,
+    image: '',
     color: '#d8c3a5',
     darkColor: '#b89a72',
   },
@@ -52,6 +58,7 @@ const PRODUCTS = [
     name: 'Единорог Искра',
     desc: 'Белый единорог с разноцветной гривой из остатков пряжи.',
     price: 2200,
+    image: '',
     color: '#f5eef7',
     darkColor: '#e0c9ea',
   },
@@ -60,6 +67,7 @@ const PRODUCTS = [
     name: 'Пингвинёнок Лёд',
     desc: 'Чёрно-белый пингвинёнок с оранжевым клювом и лапками.',
     price: 1650,
+    image: '',
     color: '#3f4a56',
     darkColor: '#2a323b',
   },
@@ -89,13 +97,20 @@ function formatPrice(price) {
   return price.toLocaleString('ru-RU') + ' ₽';
 }
 
+function toyThumb(product) {
+  if (product.image) {
+    return `<img src="images/${product.image}" alt="${product.name}" loading="lazy">`;
+  }
+  return toyFace(product.color, product.darkColor);
+}
+
 function renderCatalog() {
   const grid = document.getElementById('catalogGrid');
   const select = document.getElementById('product');
 
   const cards = PRODUCTS.map((product) => `
     <article class="toy-card">
-      <div class="toy-thumb">${toyFace(product.color, product.darkColor)}</div>
+      <div class="toy-thumb">${toyThumb(product)}</div>
       <div class="toy-info">
         <h3>${product.name}</h3>
         <p class="toy-desc">${product.desc}</p>

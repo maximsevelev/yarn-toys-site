@@ -267,6 +267,13 @@ a {
   height: 100%;
 }
 
+.toy-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
 .toy-info {
   padding: 0 20px 20px;
   display: flex;
