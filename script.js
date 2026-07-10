@@ -10,7 +10,7 @@ const PRODUCTS = [
     id: 'elochnie-igrushki',
     name: 'Ёлочные игрушки',
     desc: 'Вязаные подвески-карамельки на брелоке — яркое украшение для ёлки или сумки.',
-    price: 50,
+    price: 100,
     image: 'elochnie-igrushki.jpg',
   },
   {
