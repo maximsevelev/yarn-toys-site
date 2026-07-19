@@ -106,8 +106,8 @@ function renderCatalog() {
   const grid = document.getElementById('catalogGrid');
   const select = document.getElementById('product');
 
-  const cards = PRODUCTS.map((product) => `
-    <article class="toy-card">
+  const cards = PRODUCTS.map((product, index) => `
+    <article class="toy-card" style="transition-delay: ${Math.min(index, 6) * 0.06}s">
       <div class="toy-thumb">${toyThumb(product)}</div>
       <div class="toy-info">
         <h3>${product.name}</h3>
@@ -120,6 +120,7 @@ function renderCatalog() {
     </article>
   `).join('');
   grid.innerHTML = cards;
+  observeReveal(grid.querySelectorAll('.toy-card'));
 
   const options = PRODUCTS.map((product) =>
     `<option value="${product.id}">${product.name} — ${formatPrice(product.price)}</option>`
@@ -158,7 +159,9 @@ function setupOrderForm() {
     };
 
     submitButton.disabled = true;
+    note.classList.remove('visible');
     note.textContent = 'Отправляем заказ...';
+    requestAnimationFrame(() => note.classList.add('visible'));
 
     try {
       const response = await fetch('/api/order', {
@@ -177,6 +180,34 @@ function setupOrderForm() {
   });
 }
 
+function observeReveal(elements) {
+  if (!('IntersectionObserver' in window)) {
+    elements.forEach((el) => el.classList.add('in-view'));
+    return;
+  }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  elements.forEach((el) => observer.observe(el));
+}
+
+function setupHeaderScroll() {
+  const header = document.querySelector('.site-header');
+  const onScroll = () => {
+    header.classList.toggle('scrolled', window.scrollY > 10);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+}
+
 document.getElementById('year').textContent = new Date().getFullYear();
 renderCatalog();
 setupOrderForm();
+setupHeaderScroll();
+observeReveal(document.querySelectorAll('.reveal'));

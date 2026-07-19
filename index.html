@@ -36,6 +36,8 @@
 <main id="top">
 
   <section class="hero">
+    <div class="hero-blob hero-blob-1" aria-hidden="true"></div>
+    <div class="hero-blob hero-blob-2" aria-hidden="true"></div>
     <div class="container hero-inner">
       <div class="hero-text">
         <span class="badge">🧶 ручная работа</span>
@@ -46,7 +48,7 @@
           <a href="#order" class="btn btn-ghost">Оформить заказ</a>
         </div>
       </div>
-      <div class="hero-art" aria-hidden="true">
+      <div class="hero-art hero-float" aria-hidden="true">
         <svg viewBox="0 0 320 320" width="100%" height="100%">
           <circle cx="160" cy="160" r="150" fill="var(--cream)"/>
           <g transform="translate(60 70)">
@@ -71,17 +73,17 @@
   <section class="about" id="about">
     <div class="container">
       <div class="about-grid">
-        <div class="about-item">
+        <div class="about-item reveal">
           <div class="about-icon">🧶</div>
           <h3>Мягкая пряжа</h3>
           <p>Только гипоаллергенные нитки, приятные к телу и безопасные для детей.</p>
         </div>
-        <div class="about-item">
+        <div class="about-item reveal reveal-delay-1">
           <div class="about-icon">🪡</div>
           <h3>Ручная работа</h3>
           <p>Каждая игрушка вяжется крючком от начала до конца — без фабрик и конвейера.</p>
         </div>
-        <div class="about-item">
+        <div class="about-item reveal reveal-delay-2">
           <div class="about-icon">🎁</div>
           <h3>Готово к подарку</h3>
           <p>Упаковываем в крафт-бумагу с открыткой — можно дарить сразу из коробки.</p>
@@ -92,20 +94,20 @@
 
   <section class="catalog" id="catalog">
     <div class="container">
-      <h2 class="section-title">Наши игрушки</h2>
-      <p class="section-subtitle">Каждая игрушка связана вручную — в наличии всегда ограниченное количество.</p>
+      <h2 class="section-title reveal">Наши игрушки</h2>
+      <p class="section-subtitle reveal">Каждая игрушка связана вручную — в наличии всегда ограниченное количество.</p>
       <div class="catalog-grid" id="catalogGrid"></div>
     </div>
   </section>
 
   <section class="order" id="order">
     <div class="container order-inner">
-      <div class="order-text">
+      <div class="order-text reveal">
         <h2 class="section-title">Оформить заказ</h2>
         <p class="section-subtitle">Заполните форму — мы свяжемся с вами, чтобы уточнить детали и способ доставки.</p>
       </div>
 
-      <form class="order-form" id="orderForm" novalidate>
+      <form class="order-form reveal" id="orderForm" novalidate>
         <div class="form-row">
           <label for="name">Ваше имя</label>
           <input type="text" id="name" name="name" placeholder="Как к вам обращаться" required>
@@ -144,7 +146,7 @@
 
   <section class="contacts" id="contacts">
     <div class="container contacts-inner">
-      <div>
+      <div class="reveal">
         <h2 class="section-title">Контакты</h2>
         <ul class="contacts-list">
           <li>📞 +7 (987) 438-21-17 (Вероника)</li>
@@ -153,7 +155,7 @@
           <li>💬 Telegram по номеру выше</li>
         </ul>
       </div>
-      <div class="contacts-note">
+      <div class="contacts-note reveal reveal-delay-1">
         <p>Работаем на заказ — время изготовления одной игрушки от 3 до 7 дней.</p>
       </div>
     </div>
