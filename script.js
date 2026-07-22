@@ -1,5 +1,12 @@
 const PRODUCTS = [
   {
+    id: 'volshebniy-inoplanetyanin',
+    name: 'Волшебный инопланетянин',
+    desc: 'Розовый пришелец с блестящими глазами и мягким голубым шарфом — настоящий любимец коллекции.',
+    price: 500,
+    image: 'volshebniy-inoplanetyanin.jpg',
+  },
+  {
     id: 'marmeladniy-mishka',
     name: 'Мармеладный мишка',
     desc: 'Плюшевый мишка нежно-розового цвета с вязаным шарфиком — мягкий и приятный на ощупь.',
